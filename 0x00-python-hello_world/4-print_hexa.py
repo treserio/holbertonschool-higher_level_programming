@@ -1,3 +1,2 @@
 #!/usr/bin/python3
-for i in range(99):
-    print("{} = {}".format(i, hex(i)))
+print("\n".join("{} = {}".format(str(i), hex(i)) for i in range(99)))
