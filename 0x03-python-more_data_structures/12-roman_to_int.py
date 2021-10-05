@@ -6,9 +6,14 @@ def roman_to_int(roman_string):
         j = iter(list(roman_string[1:]))
         for i in roman_string:
             k = next(j, i)
-            if vals[i] < vals[k]:
-                total -= vals[i]
-            else:
-                total += vals[i]
+            try:
+                check = vals[i] < vals[k]
+            except KeyError:
+                return 0
+            finally:
+                if check:
+                    total -= vals[i]
+                else:
+                    total += vals[i]
 
     return total
