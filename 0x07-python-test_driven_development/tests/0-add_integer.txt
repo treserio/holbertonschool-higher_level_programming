@@ -31,7 +31,7 @@ Try Nan:
     ...
     ValueError: cannot convert float NaN to integer
 
-Try:
+Try infinity:
     >>> add_integer(float('inf'), 0)
     Traceback (most recent call last):
     ...
@@ -47,7 +47,7 @@ Try non-number + number:
     ...
     TypeError: a must be an integer
 
-Try:
+Try number + non-number:
     >>> add_integer(33, "0")
     Traceback (most recent call last):
     ...
