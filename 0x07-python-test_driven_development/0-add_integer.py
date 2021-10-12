@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+#!/usr/bin/python3
 '''Adds 2 ints or floats(cast as ints)
 '''
 
