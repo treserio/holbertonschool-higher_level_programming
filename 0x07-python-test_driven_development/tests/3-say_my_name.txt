@@ -9,6 +9,12 @@ Try 1 string
     >>> say_my_name("Tres")
     My name is Tres 
 
+Try 1 string and non-string
+    >>> say_my_name("Tres", 55)
+	Traceback (most recent call last):
+	...
+	TypeError: first_name must be a string
+
 Try No strings
 	>>> say_my_name()
 	Traceback (most recent call last):
