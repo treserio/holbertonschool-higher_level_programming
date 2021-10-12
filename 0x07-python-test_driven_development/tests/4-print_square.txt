@@ -1,1 +1,47 @@
 Try Importing function from module:
+    >>> print_square = __import__('4-print_square').print_square
+
+Try 3
+    >>> print_square(3)
+    ###
+    ###
+    ###
+
+Try 0
+    >>> print_square(0)
+
+Try more than 1 argument
+    >>> print_square(10, 0, 1)
+    Traceback (most recent call last):
+    ...
+    TypeError: print_square() takes 1 positional argument but 3 were given
+
+Try nothing
+    >>> print_square()
+    Traceback (most recent call last):
+    ...
+    TypeError: print_square() missing 1 required positional argument: 'size'
+
+Try Non-Int
+    >>> print_square(["Macho Man", "Randy Savage"])
+    Traceback (most recent call last):
+    ...
+    TypeError: size must be an integer
+
+Try negavite
+    >>> print_square(-9)
+    Traceback (most recent call last):
+    ...
+    ValueError: size must be >= 0
+
+Try float
+    >>> print_square(3.33)
+    Traceback (most recent call last):
+    ...
+    TypeError: size must be an integer
+
+Try infinity
+    >>> print_square(int('inf'))
+    Traceback (most recent call last):
+    ...
+    ValueError: invalid literal for int() with base 10: 'inf'
