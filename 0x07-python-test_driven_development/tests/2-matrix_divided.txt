@@ -20,7 +20,7 @@ Try non int for div
     TypeError: div must be a number
 
 Try zero given to div
-    >>> matrix_divided([[1, 2, 3]], 0)
+    >>> matrix_divided([[1, 2, 3], [4, 5, 6]], 0)
     Traceback (most recent call last):
     ...
     ZeroDivisionError: division by zero
@@ -60,5 +60,5 @@ Try non list matrix
     TypeError: matrix must be a matrix (list of lists) of integers/floats
 
 Try matrix of 0s / inf
-    >>> matrix_divided([[0, 0], [0, 0]], float('inf'))
+    >>> matrix_divided([[1, 2], [3, 4]], float('inf'))
     [[0.0, 0.0], [0.0, 0.0]]
