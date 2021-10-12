@@ -1,0 +1,42 @@
+Try Importing function from module:
+    >>> matrix_divided = __import__('2-matrix_divided').matrix_divided
+
+Try all positive
+    >>> matrix_divided([[1, 2], [3, 4]], 3)
+    [[0.33, 0.67], [1.0, 1.33]]
+
+Try positive / neg
+    >>> matrix_divided([[1, 2], [3, 4]], -3)
+    [[-0.33, -0.67], [-1.0, -1.33]]
+
+Try multiple
+    >>> [matrix_divided([[1, 2], [3, 4]], i) for i in range(1,3)]
+    [[[1.0, 2.0], [3.0, 4.0]], [[0.5, 1.0], [1.5, 2.0]]]
+
+Try Floats div Floats
+    >>> matrix_divided([[1.25, 2.5], [3.75, 4]], 0.25)
+    [[5.0, 10.0], [15.0, 16.0]]
+
+Try ints / char
+    >>> matrix_divided([[1, 2], [3, 4]], '3')
+    Traceback (most recent call last):
+    ...
+    TypeError: div must be a number
+
+Try different size lists in matrix
+    >>> matrix_divided([[1, 2], [3, 4, 5]], 3)
+    Traceback (most recent call last):
+    ...
+    TypeError: Each row of the matrix must have the same size
+
+Try non list matrix
+    >>> matrix_divided("holberton", 3)
+    Traceback (most recent call last):
+    ...
+    TypeError: matrix must be a matrix (list of lists) of integers/floats
+
+Try nothing given to div
+    >>> matrix_divided([[1, 2, 3]], [4, 5, 6])
+    Traceback (most recent call last):
+    ...
+    TypeError: div must be a number

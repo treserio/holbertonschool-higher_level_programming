@@ -1,0 +1,28 @@
+Try Importing function from module:
+	>>> say_my_name = __import__('3-say_my_name').say_my_name
+
+Try 2 strings
+	>>> say_my_name("Tres", "Serio")
+	My name is Tres Serio
+
+Try 1 string
+    >>> say_my_name("Tres")
+    My name is Tres 
+
+Try No strings
+	>>> say_my_name()
+	Traceback (most recent call last):
+	...
+	TypeError: say_my_name() missing 1 required positional argument: 'first_name'
+
+Try non-strings
+	>>> say_my_name(('thing1', 'thing2'), 28)
+	Traceback (most recent call last):
+	...
+	TypeError: first_name must be a string
+
+Try list with strings
+	>>> say_my_name(["Macho Man"], ["Randy Savage"])
+	Traceback (most recent call last):
+	...
+	TypeError: first_name must be a string
