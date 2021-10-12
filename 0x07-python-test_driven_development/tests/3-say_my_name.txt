@@ -13,7 +13,7 @@ Try 1 string and non-string
     >>> say_my_name("Tres", 55)
 	Traceback (most recent call last):
 	...
-	TypeError: first_name must be a string
+	TypeError: last_name must be a string
 
 Try No strings
 	>>> say_my_name()
