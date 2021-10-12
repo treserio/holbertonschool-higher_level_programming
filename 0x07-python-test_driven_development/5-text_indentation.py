@@ -6,5 +6,8 @@
 def text_indentation(text):
     '''Print input str with 2 \\n\\n after . ? and :
     '''
-    print(text.replace(". ", ".\n\n").replace("? ", "?\n\n")
-          .replace(": ", ":\n\n"), end="")
+    if type(text) == str:
+        text = text.replace(".", ".~~").replace("?", "?~~").replace(":", ":~~")
+        print("\n\n".join(i.strip() for i in text.split('~~')), end="")
+    else:
+        raise TypeError("text must be a string")
