@@ -1,8 +1,7 @@
-es (37 sloc) 759 Bytes
 Import ''1-my_list'' module:
 	>>> MyList = __import__('1-my_list').MyList
 
-POSITIVE INTS
+Try list comprehension
 	>>> my_list = MyList([j for j in range(5)])
 	>>> print(my_list)
 	[0, 1, 2, 3, 4]
