@@ -1,0 +1,77 @@
+Import ''7-base_geometry'' module:
+
+	>>> BaseGeometry = __import__('7-base_geometry').BaseGeometry
+
+Try integer_validator with float
+	>>> bg = BaseGeometry()
+	>>> bg.integer_validator("Tres", 3.3)
+	Traceback (most recent call last):
+	...
+	TypeError: Tres must be an integer
+
+Try integer_validator with negative
+	>>> bg.integer_validator("Tres", -3)
+	Traceback (most recent call last):
+	...
+	ValueError: Tres must be greater than 0
+
+Try integer_validator with list
+	>>> bg.integer_validator("Tres", [3])
+	Traceback (most recent call last):
+	...
+	TypeError: Tres must be an integer
+
+Try integer_validator with 0
+	>>> bg.integer_validator("Tres", 0)
+	Traceback (most recent call last):
+	...
+	ValueError: Tres must be greater than 0
+
+Try integer_validator with None
+	>>> bg.integer_validator("Tres", None)
+	Traceback (most recent call last):
+	...
+	TypeError: Tres must be an integer
+
+Try integer_validator with Bool
+	>>> bg.integer_validator("Tres", True)
+	Traceback (most recent call last):
+	...
+	TypeError: Tres must be an integer
+
+Try integer_validator with no args
+	>>> bg.integer_validator()
+	Traceback (most recent call last):
+	...
+	TypeError: integer_validator() missing 2 required positional arguments: 'name' and 'value'
+
+Try integer_validator with tuple
+	>>> bg.integer_validator("Tres", (7,))
+	Traceback (most recent call last):
+	...
+	TypeError: Tres must be an integer
+
+Try integer_validator with no value passed
+	>>> bg.integer_validator("Tres")
+	Traceback (most recent call last):
+	...
+	TypeError: integer_validator() missing 1 required positional argument: 'value'
+
+Try integer_validator with dic
+	>>> bg.integer_validator("Tres", {3, 4})
+	Traceback (most recent call last):
+	...
+	TypeError: Tres must be an integer
+
+Try integer_validator with str
+	>>> bg.integer_validator("Tres", "4")
+	Traceback (most recent call last):
+	...
+	TypeError: Tres must be an integer
+
+Try area()
+	>>> bg.integer_validator("Tres", 333)
+	>>> bg.area()
+	Traceback (most recent call last):
+	...
+	Exception: area() is not implemented

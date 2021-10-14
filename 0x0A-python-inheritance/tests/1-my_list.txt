@@ -8,7 +8,7 @@ Try list comprehension
 	>>> my_list.print_sorted()
 	[0, 1, 2, 3, 4]
 
-EMPTY LIST
+Try Empty
 	>>> my_list = MyList()
 
 	>>> print(my_list)
@@ -20,7 +20,7 @@ EMPTY LIST
 	>>> print(my_list)
 	[]
 
-NEGATIVE INTS
+Try Negatives
 	>>> my_list = MyList()
 	>>> my_list.append(-1)
 	>>> my_list.append(4)
