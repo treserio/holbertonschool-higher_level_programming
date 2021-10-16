@@ -3,6 +3,6 @@
 import json
 
 
-def to_json_string(my_obj):
+def from_json_string(my_str):
     '''Return an object based on JSON string'''
-    return json.loads(my_obj)
+    return json.loads(my_str)
