@@ -18,7 +18,11 @@ class Student:
         self.age = age
 
     def to_json(self, attrs=None):
-        '''Returns dictionary representation of obj'''
+        '''Returns dictionary representation of obj
+
+        Args:
+            attrs: list of keys to JSONify
+        '''
         if attrs != None:
             return {k: self.__dict__[k] for k in self.__dict__ if k in attrs}
         else:
