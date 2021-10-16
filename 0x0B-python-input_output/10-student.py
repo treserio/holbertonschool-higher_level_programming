@@ -19,7 +19,7 @@ class Student:
 
     def to_json(self, attrs=None):
         '''Returns dictionary representation of obj'''
-        if attrs is not None:
+        if attrs != None:
             return {k: self.__dict__[k] for k in self.__dict__ if k in attrs}
         else:
             return self.__dict__
