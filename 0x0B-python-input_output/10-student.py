@@ -23,7 +23,7 @@ class Student:
         Args:
             attrs: list of keys to JSONify
         '''
-        if attrs != None:
+        if attrs is not None:
             return {k: self.__dict__[k] for k in self.__dict__ if k in attrs}
         else:
             return self.__dict__
