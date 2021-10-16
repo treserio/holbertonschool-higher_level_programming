@@ -29,5 +29,10 @@ class Student:
             return self.__dict__
 
     def reload_from_json(self, json):
+        '''Resets attributes in Student based on JSON input
+
+        Args:
+            json: dictionary object
+        '''
         for k in json:
             setattr(self, k, json[k])
