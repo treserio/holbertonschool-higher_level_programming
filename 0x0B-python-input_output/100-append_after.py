@@ -18,7 +18,10 @@ def append_after(filename="", search_string="", new_string=""):
 
     for ln in range(len(fd_text)):
         if search_string in fd_text[ln]:
-            fd_text.insert(ln + 1, new_string)
+            if fd_text[ln][-1] == '\n':
+                fd_text.insert(ln + 1, new_string)
+            else:
+                fd_text.insert(ln + 1, '\n' + new_string)
 
     with open(filename, 'w') as fd:
         fd_text = "".join(fd_text)
