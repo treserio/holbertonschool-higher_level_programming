@@ -10,8 +10,11 @@ def append_after(filename="", search_string="", new_string=""):
         search_string: the text to insert a new line after
         new_string: the line to insert into the file
     '''
-    with open(filename, 'r') as fd:
-        fd_text = fd.readlines()
+    try:
+        with open(filename, 'r') as fd:
+            fd_text = fd.readlines()
+    except FileNotFoundError:
+        return
 
     for ln in range(len(fd_text)):
         if search_string in fd_text[ln]:
