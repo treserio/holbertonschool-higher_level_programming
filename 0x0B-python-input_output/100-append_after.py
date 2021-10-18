@@ -11,15 +11,11 @@ def append_after(filename="", search_string="", new_string=""):
         new_string: the line to insert into the file
     '''
     with open(filename, 'r') as fd:
-        fd_text = fd.readlines()
-
-    for ln in range(len(fd_text)):
-        if search_string in fd_text[ln]:
-            if fd_text[ln][-1] == '\n':
-                fd_text.insert(ln + 1, new_string)
-            else:
-                fd_text.insert(ln + 1, '\n' + new_string)
+        fd_text = ""
+        for ln in fd:
+            fd_text += ln
+            if search_string in ln:
+                fd_text += new_string
 
     with open(filename, 'w') as fd:
-        fd_text = "".join(fd_text)
         fd.write(fd_text)
