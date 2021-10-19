@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-'''base init method'''
+'''Base class for geometry classes'''
 
 
 class Base:
