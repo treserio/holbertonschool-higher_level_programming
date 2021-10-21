@@ -3,6 +3,7 @@
 
 
 import json
+import csv
 
 
 class Base:
@@ -45,17 +46,6 @@ class Base:
 #   Class Methods
 # ----------------
     @classmethod
-    def save_to_file(cls, list_objs):
-        '''Save list of class obj into <class>.json files'''
-        with open(cls.__name__ + '.json', 'w') as fd:
-            if list_objs:
-                fd.write('[' + ', '.join(
-                    cls.to_json_string(j.to_dictionary()) for j in list_objs) + ']')
-            else:
-                fd.write('[]')
-        fd.close
-
-    @classmethod
     def create(cls, **dictionary):
         return cls(**dictionary)
 
@@ -66,6 +56,36 @@ class Base:
                 return [cls.create(**j) for j in cls.from_json_string(fd.read())]
         except:
             return []
+
+    @classmethod
+    def save_to_file(cls, list_objs):
+        '''Save list of class obj into <class>.json files'''
+        with open(cls.__name__ + '.json', 'w') as fd:
+            if list_objs:
+                fd.write('[' + ', '.join(
+                    cls.to_json_string(j.to_dictionary()) for j in list_objs) + ']')
+            else:
+                fd.write('[]')
+
+    @classmethod
+    def load_from_file_csv(cls):
+        pass
+
+    @classmethod
+    def save_to_file_csv(cls, list_objs):
+        # if statement to redine 'fields' based on cls.__name__
+        if cls.__name__ == 'Rectangle':
+            fields = ['id', '_Rectangle__width', '_Rectangle__height',
+                      '_Rectangle__x', '_Rectangle__y']
+        elif cls.__name__ == 'Square':
+            fields = ['id', '_Rectangle__width',
+                      '_Rectangle__x', '_Rectangle__y']
+        with open(cls.__name__ + '.csv', 'w') as fd:
+            wr_str = ""
+            for ob in list_objs:
+                wr_str += ",".join(str(vars(ob)[key]) for key in fields)
+                wr_str += '\n'
+            fd.write(wr_str)
 
 # -----------------
 #   Static Methods
