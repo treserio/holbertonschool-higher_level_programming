@@ -6,28 +6,12 @@ from models.base import Base
 class Rectangle(Base):
     '''Rectangle class inherits from Base'''
 
-    def verify_WH(self, nm, val):
-        if type(val) is not int:
-            raise TypeError("{} must be an integer".format(nm))
-        if val <= 0:
-            raise ValueError("{} must be > 0".format(nm))
-
-    def verify_XY(self, nm, val):
-        if type(val) is not int:
-            raise TypeError("{} must be an integer".format(nm))
-        if val < 0:
-            raise ValueError("{} must be >= 0".format(nm))
-
     def __init__(self, width, height, x=0, y=0, id=None):
         super().__init__(id)
-        self.verify_WH("width", width)
-        self.__width = width
-        self.verify_WH("height", height)
-        self.__height = height
-        self.verify_XY("x", x)
-        self.__x = x
-        self.verify_XY("y", y)
-        self.__y = y
+        self.__width = self.verify_WH("width", width)
+        self.__height = self.verify_WH("height", height)
+        self.__x = self.verify_XY("x", x)
+        self.__y = self.verify_XY("y", y)
 
     @property
     def width(self):
@@ -35,8 +19,7 @@ class Rectangle(Base):
 
     @width.setter
     def width(self, val):
-        self.verify_WH("width", val)
-        self.__width = val
+        self.__width = self.verify_WH("width", val)
 
     @property
     def height(self):
@@ -44,8 +27,7 @@ class Rectangle(Base):
 
     @height.setter
     def height(self, val):
-        self.verify_WH("height", val)
-        self.__height = val
+        self.__height = self.verify_WH("height", val)
 
     @property
     def x(self):
@@ -53,8 +35,7 @@ class Rectangle(Base):
 
     @x.setter
     def x(self, val):
-        self.verify_XY("x", val)
-        self.__x = val
+        self.__x = self.verify_XY("x", val)
 
     @property
     def y(self):
@@ -62,8 +43,7 @@ class Rectangle(Base):
 
     @y.setter
     def y(self, val):
-        self.verify_XY("y", val)
-        self.__y = val
+        self.__y = self.verify_XY("y", val)
 
     def area(self):
         return self.width * self.height
@@ -77,7 +57,15 @@ class Rectangle(Base):
         return "[Rectangle] ({}) {}/{} - {}/{}".format(
             self.id, self.x, self.y, self.width, self.height)
 
-    def update(self, *args):
+    def update(self, *args, **kwargs):
         attr = ('id', 'width', 'height', 'x', 'y')
-        for i in range(len(args)):
-            setattr(self, attr[i], args[i])
+        if len(args) != 0:
+            for i in range(len(args)):
+                setattr(self, attr[i], args[i])
+        else:
+            for key in kwargs:
+                setattr(self, key, kwargs[key])
+
+    def to_dictionary(self):
+        return {key.replace('_Rectangle__', ''): vars(self)[key]
+                for key in vars(self)}
