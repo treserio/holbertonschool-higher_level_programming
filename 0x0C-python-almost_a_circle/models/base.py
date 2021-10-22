@@ -115,6 +115,6 @@ class Base:
     @ staticmethod
     def to_json_string(list_dictionaries):
         '''Return JSON string representation of list of dict'''
-        if len(list_dictionaries) == 0:
+        if len(list_dictionaries) == 0 or None:
             return '[]'
         return json.dumps(list_dictionaries)
