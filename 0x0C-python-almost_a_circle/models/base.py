@@ -47,7 +47,10 @@ class Base:
     @classmethod
     def create(cls, **dictionary):
         '''instantiate a cls obj based on kwargs(**dictionary)'''
-        return cls(**dictionary)
+        # return cls(**dictionary)
+        dum = cls(**dictionary)
+        dum.update(**dictionary)
+        return dum
 
     @classmethod
     def load_from_file(cls):
