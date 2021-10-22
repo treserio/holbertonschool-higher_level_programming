@@ -108,13 +108,13 @@ class Base:
     @ staticmethod
     def from_json_string(json_string):
         '''Return a list of dictionary obj based on JSON string'''
-        if len(json_string) == 0:
-            return []
-        return json.loads(json_string)
+        if json_string and len(json_string) > 0:
+            return json.loads(json_string)
+        return []
 
     @ staticmethod
     def to_json_string(list_dictionaries):
         '''Return JSON string representation of list of dict'''
-        if len(list_dictionaries) == 0 or None:
-            return '[]'
-        return json.dumps(list_dictionaries)
+        if list_dictionaries and len(list_dictionaries) > 0:
+            return json.dumps(list_dictionaries)
+        return '[]'
