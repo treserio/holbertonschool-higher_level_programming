@@ -54,7 +54,8 @@ class Base:
         '''Return a list ot instantiated objects'''
         try:
             with open(cls.__name__ + '.json', 'r') as fd:
-                return [cls.create(**j) for j in cls.from_json_string(fd.read())]
+                return [cls.create(**j)
+                        for j in cls.from_json_string(fd.read())]
         except:
             return []
 
@@ -64,7 +65,8 @@ class Base:
         with open(cls.__name__ + '.json', 'w') as fd:
             if list_objs:
                 fd.write('[' + ', '.join(
-                    cls.to_json_string(j.to_dictionary()) for j in list_objs) + ']')
+                    cls.to_json_string(j.to_dictionary())
+                    for j in list_objs) + ']')
             else:
                 fd.write('[]')
 

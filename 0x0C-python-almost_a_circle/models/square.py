@@ -28,7 +28,9 @@ class Square(Rectangle):
         self.height = self.verify_WH("height", val)
 
     def update(self, *args, **kwargs):
-        '''Updates attributes in specific order for args, and with key:val pairs for kwargs'''
+        '''Updates attributes in specific order for args,
+        and with key:val pairs for kwargs
+        '''
         attr = ('id', 'size', 'x', 'y')
         if len(args) != 0:
             for i in range(len(args)):
