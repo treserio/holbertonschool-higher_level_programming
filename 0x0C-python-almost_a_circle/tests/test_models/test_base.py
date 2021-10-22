@@ -24,12 +24,16 @@ class test_Rect(unittest.TestCase):
     '''Testing Rectangles inherited from Model'''
 
     def test_1_RectInit(self):
-        rect = Rectangle(None, None)
-        self.assertEqual([rect.width, rect.height, rect.x, rect.y, rect.id],
-                         [None, None, 0, 0, 4])
+        with self.assertRaises(TypeError):
+            Rectangle()
+            Rectangle(1)
+            Rectangle(None, None)
+            Rectangle((1, 2))
+            Rectangle("2", "4")
+            Rectangle([1, 2])
         rect = Rectangle(10, 2)
         self.assertEqual([rect.width, rect.height, rect.x, rect.y, rect.id],
-                         [10, 2, 0, 0, 5])
+                         [10, 2, 0, 0, 4])
         rect = Rectangle(2, 10, 3, 11, 33)
         self.assertEqual([rect.width, rect.height, rect.x, rect.y, rect.id],
                          [2, 10, 3, 11, 33])
