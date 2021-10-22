@@ -7,8 +7,7 @@ import csv
 
 
 class Base:
-    '''Base class for geometry classes
-    '''
+    '''Base class for geometry classes'''
 #   object counter
     __nb_objects = 0
 
@@ -47,10 +46,12 @@ class Base:
 # ----------------
     @classmethod
     def create(cls, **dictionary):
+        '''instantiate a cls obj based on kwargs(**dictionary)'''
         return cls(**dictionary)
 
     @classmethod
     def load_from_file(cls):
+        '''Return a list ot instantiated objects'''
         try:
             with open(cls.__name__ + '.json', 'r') as fd:
                 return [cls.create(**j) for j in cls.from_json_string(fd.read())]
@@ -69,11 +70,23 @@ class Base:
 
     @classmethod
     def load_from_file_csv(cls):
-        pass
+        '''load geometric objects from associated csv files'''
+        if cls.__name__ == 'Rectangle':
+            fields = ['id', 'width', 'height', 'x', 'y']
+        elif cls.__name__ == 'Square':
+            fields = ['id', 'size', 'x', 'y']
+        with open(cls.__name__ + '.csv', 'r') as fd:
+            data = list(csv.reader(fd))
+            crt_lst = []
+            for l in data:
+                crt_lst.append({fields[i]: int(l[i])
+                               for i in range(len(fields))})
+
+        return [cls.create(**d) for d in crt_lst]
 
     @classmethod
     def save_to_file_csv(cls, list_objs):
-        # if statement to redine 'fields' based on cls.__name__
+        '''save geometric objects to associated csv files'''
         if cls.__name__ == 'Rectangle':
             fields = ['id', '_Rectangle__width', '_Rectangle__height',
                       '_Rectangle__x', '_Rectangle__y']
@@ -92,12 +105,14 @@ class Base:
 # -----------------
     @ staticmethod
     def from_json_string(json_string):
+        '''Return a list of dictionary obj based on JSON string'''
         if len(json_string) == 0:
             return []
         return json.loads(json_string)
 
     @ staticmethod
     def to_json_string(list_dictionaries):
+        '''Return JSON string representation of list of dict'''
         if len(list_dictionaries) == 0:
             return '[]'
         return json.dumps(list_dictionaries)
