@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-from MySQLdb import connections
+'''Print all states in order by id'''
 
 
 if __name__ == '__main__':
