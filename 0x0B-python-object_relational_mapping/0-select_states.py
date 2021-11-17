@@ -19,7 +19,8 @@ if __name__ == '__main__':
     curse = db.cursor()
     curse.execute("SELECT * FROM states ORDER BY id")
 
-    print("\n".join(str(rec) for rec in curse.fetchall()))
+    if len(curse.fetchall()) > 0:
+        print("\n".join(str(rec) for rec in curse.fetchall()))
 
     curse.close()
     db.close()
