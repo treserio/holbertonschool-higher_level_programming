@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-'''print states that begin with "N" in order by id'''
+'''Print all states in order by id'''
 
 
 if __name__ == '__main__':
@@ -9,7 +9,6 @@ if __name__ == '__main__':
     try:
         db = MySQLdb.connect(host='localhost',
                              user=argv[1],
-                             passwd=argv[2],
                              db=argv[3],
                              port=3306
                              )
@@ -19,7 +18,8 @@ if __name__ == '__main__':
     curse = db.cursor()
     curse.execute("SELECT * FROM states WHERE name LIKE 'N%' ORDER BY id")
 
-    print("\n".join(str(rec) for rec in curse.fetchall()))
+    for rec in curse.fetchall():
+        print(rec)
 
     curse.close()
     db.close()
