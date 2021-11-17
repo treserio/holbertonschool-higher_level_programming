@@ -9,7 +9,7 @@ if __name__ == '__main__':
     try:
         db = MySQLdb.connect(host='localhost',
                              user=argv[1],
-                             passwd=argv[2],
+                             passwd='',
                              db=argv[3],
                              port=3306
                              )
@@ -19,8 +19,8 @@ if __name__ == '__main__':
     curse = db.cursor()
     curse.execute("SELECT * FROM states ORDER BY id")
 
-    if len(curse.fetchall()) > 0:
-        print("\n".join(str(rec) for rec in curse.fetchall()))
+    for rec in curse.fetchall():
+        print(rec)
 
     curse.close()
     db.close()
