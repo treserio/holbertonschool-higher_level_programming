@@ -9,7 +9,6 @@ if __name__ == '__main__':
     try:
         db = MySQLdb.connect(host='localhost',
                              user=argv[1],
-                             passwd='',
                              db=argv[3],
                              port=3306
                              )
