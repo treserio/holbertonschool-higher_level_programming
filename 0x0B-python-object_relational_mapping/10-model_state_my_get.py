@@ -21,4 +21,4 @@ if __name__ == '__main__':
     except Exception:
         print('Not found')
 
-    Sess().close
+    Sess().close()
