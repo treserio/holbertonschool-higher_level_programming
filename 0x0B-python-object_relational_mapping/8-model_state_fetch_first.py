@@ -15,13 +15,9 @@ if __name__ == '__main__':
     Sess = sessionmaker(bind=Eng)
 
     try:
-        print("\n".join(str(rec.id) + ': ' + rec.name for rec in
-                        Sess().query(State)
-                        .order_by(State.id)
-                        .filter(State.name.like('%a%'))
-                        )
-              )
+        print('{}: {}'.format(Sess().query(State).first().id,
+                              Sess().query(State).first().name))
     except Exception:
-        pass
+        print('Nothing')
 
     Sess().close
