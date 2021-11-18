@@ -16,8 +16,8 @@ if __name__ == '__main__':
     Sess = sessionmaker(bind=Eng)
 
     for st in Sess().query(State):
-        print("{}: {}".format(st.id, st.name))
+        print('{}: {}'.format(st.id, st.name))
         for ct in st.cities:
-            print("\t{}: {}".format(ct.id, ct.name))
+            print('\t{}: {}'.format(ct.id, ct.name))
 
     Sess().close()
