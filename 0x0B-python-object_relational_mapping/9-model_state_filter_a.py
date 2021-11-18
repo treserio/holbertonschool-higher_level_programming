@@ -14,14 +14,11 @@ if __name__ == '__main__':
     Base.metadata.create_all(Eng)
     Sess = sessionmaker(bind=Eng)
 
-    try:
-        print("\n".join(str(rec.id) + ': ' + rec.name for rec in
-                        Sess().query(State)
-                        .order_by(State.id)
-                        .filter(State.name.like('%a%'))
-                        )
-              )
-    except Exception:
-        pass
+    recs = Sess().query(State)\
+        .order_by(State.id)\
+        .filter(State.name.like('%a%'))
+
+    for rec in recs:
+        print("{}: {}".format(rec.id, rec.name))
 
     Sess().close
