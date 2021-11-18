@@ -14,8 +14,10 @@ if __name__ == '__main__':
     Base.metadata.create_all(Eng)
     Sess = sessionmaker(bind=Eng)
 
-    if Sess().query(State).first():
+    try:
         print('{}: {}'.format(Sess().query(State).first().id,
                               Sess().query(State).first().name))
+    except Exception:
+        print('Nothing')
 
     Sess().close
