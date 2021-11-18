@@ -16,8 +16,7 @@ if __name__ == '__main__':
 
     try:
         print(Sess().query(State)
-              .order_by(State.id)
-              .filter(State.name == argv[4])[0].id
+              .filter_by(name=argv[4])[0].id
               )
     except Exception:
         print('Not Found')
