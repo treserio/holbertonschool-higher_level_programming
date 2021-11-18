@@ -20,7 +20,7 @@ if __name__ == '__main__':
     curse.execute(
         "SELECT * FROM states\
         WHERE name LIKE BINARY '{}'\
-        ORDER BY id".format(argv[4]))
+        ORDER BY id".format(argv[4].split(" ")[0]))
 
     for rec in curse.fetchall():
         print(rec)
