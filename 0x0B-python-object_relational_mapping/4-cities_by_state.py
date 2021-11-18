@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-'''Print all states where name matches given str'''
+'''Print city & state info'''
 
 
 if __name__ == '__main__':

@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-'''Print all states where name matches given str'''
+'''Print all states where name matches given str + protection'''
 
 
 if __name__ == '__main__':
