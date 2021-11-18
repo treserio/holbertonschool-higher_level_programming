@@ -13,11 +13,9 @@ if __name__ == '__main__':
                         pool_pre_ping=True)
 
     Sess = sessionmaker(bind=Eng)
+    s = Sess()
     new_st = State(name='Louisiana')
-
-    Sess().add(new_st)
-    Sess().commit()
-
+    s.add(new_st)
+    s.commit()
     print("{}".format(new_st.id))
-
-    Sess().close()
+    s.close()
