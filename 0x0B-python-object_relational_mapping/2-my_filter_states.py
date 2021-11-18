@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-'''Print all states in order by id'''
+'''Print all states where name matches given str'''
 
 
 if __name__ == '__main__':
@@ -18,7 +18,9 @@ if __name__ == '__main__':
 
     curse = db.cursor()
     curse.execute(
-        "SELECT * FROM states WHERE name LIKE BINARY '{}' ORDER BY id".format(argv[4]))
+        "SELECT * FROM states\
+        WHERE name LIKE BINARY '{}'\
+        ORDER BY id".format(argv[4]))
 
     for rec in curse.fetchall():
         print(rec)

@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-'''Print all states in order by id'''
+'''Print all states beginning with N'''
 
 
 if __name__ == '__main__':
