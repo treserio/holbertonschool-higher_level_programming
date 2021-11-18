@@ -16,9 +16,9 @@ if __name__ == '__main__':
 
     try:
         print(Sess().query(State)
-              .filter_by(name=argv[4])[0].id
+              .filter(State.name == argv[4])[0].id
               )
     except Exception:
-        print('Not Found')
+        print('Not found')
 
     Sess().close
