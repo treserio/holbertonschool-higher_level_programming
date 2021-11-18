@@ -23,9 +23,10 @@ if __name__ == '__main__':
         WHERE states.name = '{}'\
         ORDER BY cities.id".format(argv[4]))
 
-    fetch = curse.fetchall()
-    if fetch:
-        print(', '.join(rec[0] for rec in fetch))
+    fetch = []
+    for rec in curse.fetchall():
+        fetch.append(rec[0])
+    print(', '.join(fetch))
 
     curse.close()
     db.close()
