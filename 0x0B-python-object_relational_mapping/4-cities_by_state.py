@@ -9,7 +9,7 @@ if __name__ == '__main__':
     try:
         db = MySQLdb.connect(host='localhost',
                              user=argv[1],
-                             passwd='',
+                             passwd=argv[2],
                              db=argv[3],
                              port=3306
                              )
@@ -17,7 +17,7 @@ if __name__ == '__main__':
         exit()
 
     curse = db.cursor()
-    print('running')
+
     curse.execute(
         "SELECT cities.id, cities.name, states.name\
         FROM cities JOIN states ON cities.state_id=states.id\
