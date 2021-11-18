@@ -14,7 +14,7 @@ if __name__ == '__main__':
     Base.metadata.create_all(Eng)
     Sess = sessionmaker(bind=Eng)
 
-    # for rec in Sess().query(State).order_by(State.id):
-    print('\n'.join(str(rec.id) + ": " + rec.name
-          for rec in Sess().query(State).order_by(State.id)))
+    for rec in Sess().query(State).order_by(State.id):
+        print('\n'.format(rec.id, rec.name))
+
     Sess().close
