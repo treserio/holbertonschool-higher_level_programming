@@ -15,6 +15,6 @@ if __name__ == '__main__':
     Sess = sessionmaker(bind=Eng)
 
     for rec in Sess().query(State).order_by(State.id):
-        print('\n'.format(rec.id, rec.name))
+        print('{}: {}'.format(rec.id, rec.name))
 
     Sess().close
