@@ -21,7 +21,7 @@ if __name__ == '__main__':
         "SELECT cities.name\
         FROM states JOIN cities ON states.id=cities.state_id\
         WHERE states.name = '{}'\
-        ORDER BY cities.id".format(argv[4].split(" ")[0]))
+        ORDER BY cities.id".format(argv[4]))
 
     fetch = curse.fetchall()
     if fetch:
