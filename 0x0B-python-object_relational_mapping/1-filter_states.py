@@ -18,7 +18,7 @@ if __name__ == '__main__':
 
     curse = db.cursor()
     curse.execute(
-        "SELECT * FROM states WHERE name LIKE BINARY 'N%' ORDER BY id ASC")
+        "SELECT * FROM states WHERE name LIKE BINARY 'N%' ORDER BY id")
 
     for rec in curse.fetchall():
         print(rec)
