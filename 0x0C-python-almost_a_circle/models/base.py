@@ -116,11 +116,13 @@ class Base:
                 turtle.right(90)
                 turtle.forward(rec.width)
                 turtle.right(90)
+            turtle.clearscreen
         for sq in sq_list:
             turtle.setpos(sq.x, sq.y)
-            while i in range(4):
+            for i in range(4):
                 turtle.forward(sq.size)
                 turtle.right(90)
+            turtle.clearscreen
 
 # -----------------
 #   Static Methods
