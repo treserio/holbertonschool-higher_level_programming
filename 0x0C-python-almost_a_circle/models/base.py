@@ -4,6 +4,7 @@
 
 import json
 import csv
+import turtle
 
 
 class Base:
@@ -104,6 +105,22 @@ class Base:
                 wr_str += ",".join(str(vars(ob)[key]) for key in fields)
                 wr_str += '\n'
             fd.write(wr_str)
+
+    @staticmethod
+    def draw(rec_list, sq_list):
+        '''using turtle module to draw shapes'''
+        for rec in rec_list:
+            turtle.setpos(rec.x, rec.y)
+            for i in range(2):
+                turtle.forward(rec.height)
+                turtle.right(90)
+                turtle.forward(rec.width)
+                turtle.right(90)
+        for sq in sq_list:
+            turtle.setpos(sq.x, sq.y)
+            while i in range(4):
+                turtle.forward(sq.size)
+                turtle.right(90)
 
 # -----------------
 #   Static Methods
