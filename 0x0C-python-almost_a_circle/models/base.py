@@ -106,24 +106,6 @@ class Base:
                 wr_str += '\n'
             fd.write(wr_str)
 
-    @staticmethod
-    def draw(rec_list, sq_list):
-        '''using turtle module to draw shapes'''
-        for rec in rec_list:
-            turtle.setpos(rec.x, rec.y)
-            for i in range(2):
-                turtle.forward(rec.height)
-                turtle.right(90)
-                turtle.forward(rec.width)
-                turtle.right(90)
-            turtle.clearscreen
-        for sq in sq_list:
-            turtle.setpos(sq.x, sq.y)
-            for i in range(4):
-                turtle.forward(sq.size)
-                turtle.right(90)
-            turtle.clearscreen
-
 # -----------------
 #   Static Methods
 # -----------------
@@ -140,3 +122,25 @@ class Base:
         if list_dictionaries and len(list_dictionaries) > 0:
             return json.dumps(list_dictionaries)
         return '[]'
+
+    @staticmethod
+    def draw(rec_list, sq_list):
+        '''using turtle module to draw shapes'''
+        for rec in rec_list:
+            turtle.penup()
+            turtle.setpos(rec.x, rec.y)
+            turtle.pendown()
+            for i in range(2):
+                turtle.forward(rec.height)
+                turtle.right(90)
+                turtle.forward(rec.width)
+                turtle.right(90)
+            turtle.clearscreen()
+        for sq in sq_list:
+            turtle.penup()
+            turtle.setpos(sq.x, sq.y)
+            turtle.pendown()
+            for i in range(4):
+                turtle.forward(sq.size)
+                turtle.right(90)
+            turtle.clearscreen()
