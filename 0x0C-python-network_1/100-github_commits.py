@@ -30,4 +30,5 @@ if __name__ == '__main__':
     )
     jsonStr = req.json()
     print("\n".join('{}: {}'.format(i['sha'], i['commit']['author']['name'])
-                    for i in sorted(jsonStr, key=time_sort)[:10]))
+                    for i in sorted(jsonStr, key=time_sort, reverse=True)
+                    [:10]))
