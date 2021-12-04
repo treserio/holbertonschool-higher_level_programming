@@ -20,8 +20,9 @@ if __name__ == '__main__':
 
         hr = date_t.split(':')[0]
         mn = date_t.split(':')[1]
+        sc = date_t.split(':')[2][:-1]
 
-        return yr, mon, day, hr, mn
+        return yr, mon, day, hr, mn, sc
 
     req = requests.get(
         'https://api.github.com/repos/{}/{}/commits'
