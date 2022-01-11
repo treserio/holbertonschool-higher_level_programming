@@ -2,15 +2,15 @@
 const req = require('request');
 
 req.get(process.argv[2], (e, r) => {
-  let td_cnt = {};
+  const tdCnt = {};
   for (const todo of JSON.parse(r.body)) {
     if (todo.completed) {
-      if (!(todo.userId in td_cnt)) {
-        td_cnt[todo.userId] = 1;
+      if (!(todo.userId in tdCnt)) {
+        tdCnt[todo.userId] = 1;
       } else {
-        ++td_cnt[todo.userId];
+        ++tdCnt[todo.userId];
       }
     }
   }
-  console.log(td_cnt);
+  console.log(tdCnt);
 });
