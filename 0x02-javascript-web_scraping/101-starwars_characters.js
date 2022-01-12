@@ -14,11 +14,11 @@ req.get('https://swapi-api.hbtn.io/api/films/' + process.argv[2], (e, r) => {
     setTimeout(() => {
       for (const chUrl of chars) {
         for (const chInfo of allPeeps) {
-          if (chInfo.url == chUrl) {
+          if (chInfo.url === chUrl) {
             console.log(chInfo.name);
           }
         }
       }
     }, 3000);
   });
-})
+});
