@@ -4,7 +4,6 @@
 
 if __name__ == '__main__':
     import sys
-    import urllib.parse
     import urllib.request
 
     with urllib.request.urlopen(sys.argv[1]) as r:
