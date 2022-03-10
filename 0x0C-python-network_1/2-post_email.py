@@ -6,16 +6,8 @@ if __name__ == '__main__':
     import sys
     from urllib import request, parse
 
-    dic = {}
-
-    dic['email'] = sys.argv[2]
-
-    data = parse.urlencode(dic)
-
-    dic = data.encode('UTF-8')
-
-    req = request.Request(sys.argv[1], dic)
+    data = parse.urlencode({'email': sys.argv[2]})
+    req = request.Request(sys.argv[1], data.encode('UTF-8'))
 
     with request.urlopen(req) as r:
-        html = r.read()
-        print(html.decode('UTF-8'))
+        print(r.read().decode('UTF-8'))
