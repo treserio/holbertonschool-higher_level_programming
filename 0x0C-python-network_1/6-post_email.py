@@ -6,10 +6,6 @@ if __name__ == '__main__':
     import requests
     import sys
 
-    dic = {}
-
-    dic['email'] = sys.argv[2]
-
-    req = requests.post(sys.argv[1], dic)
+    req = requests.post(sys.argv[1], {'email': sys.argv[2]})
 
     print(req.text)
