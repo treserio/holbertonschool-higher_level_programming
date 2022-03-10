@@ -9,4 +9,4 @@ if __name__ == '__main__':
         print('Body response:')
         print('\t- type: {}'.format(type(r.read())))
         print('\t- content: {}'.format(r.read()))
-        print('\t- utf8 content: {}'.format(r.read().decode('UTF-8')))
+        print('\t- utf8 content: {}'.format(r.read().decode('UTF8')))
