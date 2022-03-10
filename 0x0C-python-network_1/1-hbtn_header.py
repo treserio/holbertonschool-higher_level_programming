@@ -8,5 +8,4 @@ if __name__ == '__main__':
     import urllib.request
 
     with urllib.request.urlopen(sys.argv[1]) as r:
-        html = r.info()
-        print('{}'.format(html.get('X-Request-ID')))
+        print('{}'.format(r.info().get('X-Request-ID')))
