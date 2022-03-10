@@ -6,8 +6,6 @@ if __name__ == '__main__':
     import requests
     import sys
 
-    req = requests.get(sys.argv[1])
-
-    hdrs = req.headers
+    hdrs = requests.get(sys.argv[1]).headers
 
     print(hdrs.get('X-Request-Id'))
